@@ -27,7 +27,7 @@ This web application provides a lightweight, JS-free interface to inspect live p
 
 1. Clone or download the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/powerCord1/payphonetag-html.git
    cd payphonetag-html
    ```
 
