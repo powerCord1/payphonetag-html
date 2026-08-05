@@ -8,7 +8,6 @@
 
   <% if (!events || events.length === 0) { %>
     <div class="empty-state">
-      <div class="empty-icon">🔕</div>
       <p>No recent alerts available.</p>
     </div>
   <% } else { %>
@@ -16,7 +15,6 @@
       <% events.forEach(event => { %>
         <% if (event.type === 'stolen') { %>
           <div class="alert-item stolen">
-            <div class="alert-icon-box">🚨</div>
             <div class="alert-content">
               <div class="alert-text">
                 Payphone at <strong><%= event.body.phone %></strong> stolen by <strong><%= event.body.by %></strong>
@@ -27,7 +25,6 @@
 
         <% } else if (event.type === 'promoted') { %>
           <div class="alert-item promoted">
-            <div class="alert-icon-box">📈</div>
             <div class="alert-content">
               <div class="alert-text">
                 You rose from <strong>#<%= event.body.from %></strong> to <strong>#<%= event.body.to %></strong>!
@@ -38,7 +35,6 @@
 
         <% } else if (event.type === 'overtaken') { %>
           <div class="alert-item overtaken">
-            <div class="alert-icon-box">📉</div>
             <div class="alert-content">
               <div class="alert-text">
                 You dropped from <strong>#<%= event.body.from %></strong> to <strong>#<%= event.body.to %></strong>
@@ -49,7 +45,6 @@
 
         <% } else if (event.type === 'badge') { %>
           <div class="alert-item badge">
-            <div class="alert-icon-box">🏆</div>
             <div class="alert-content">
               <div class="alert-text">
                 Unlocked new badge: <strong><%= formatBadgeName(event.body.badge_id) %></strong>
@@ -60,7 +55,6 @@
 
         <% } else { %>
           <div class="alert-item default">
-            <div class="alert-icon-box">🔔</div>
             <div class="alert-content">
               <div class="alert-text">
                 <%= JSON.stringify(event.body) %>
