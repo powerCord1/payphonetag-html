@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-icon">☎</div>
+      <h1 class="login-title">Payphone Tag</h1>
+      <p class="login-desc">Enter your Player PIN to access game alerts, stats, and notifications.</p>
+
+      <% if (error) { %>
+        <div class="alert-error">
+          ⚠️ <%= error %>
+        </div>
+        <% } %>
+
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="pin" class="form-label">Player PIN</label>
+              <input type="text" id="pin" name="pin" class="form-input" placeholder="e.g. 12345" required
+                autocomplete="off" autofocus />
+            </div>
+
+            <button type="submit" class="btn-primary">Log in</button>
+          </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>

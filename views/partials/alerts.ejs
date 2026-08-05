@@ -1,0 +1,75 @@
+<div class="section-card">
+  <div class="section-title-bar">
+    <h2>
+      Alerts
+    </h2>
+    <span class="badge-count"><%= events.length %> Events (Oldest to Newest)</span>
+  </div>
+
+  <% if (!events || events.length === 0) { %>
+    <div class="empty-state">
+      <div class="empty-icon">🔕</div>
+      <p>No recent alerts available.</p>
+    </div>
+  <% } else { %>
+    <div class="alerts-list">
+      <% events.forEach(event => { %>
+        <% if (event.type === 'stolen') { %>
+          <div class="alert-item stolen">
+            <div class="alert-icon-box">🚨</div>
+            <div class="alert-content">
+              <div class="alert-text">
+                Payphone at <strong><%= event.body.phone %></strong> stolen by <strong><%= event.body.by %></strong>
+              </div>
+              <div class="alert-time"><%= formatDate(event.created_at) %></div>
+            </div>
+          </div>
+
+        <% } else if (event.type === 'promoted') { %>
+          <div class="alert-item promoted">
+            <div class="alert-icon-box">📈</div>
+            <div class="alert-content">
+              <div class="alert-text">
+                You rose from <strong>#<%= event.body.from %></strong> to <strong>#<%= event.body.to %></strong>!
+              </div>
+              <div class="alert-time"><%= formatDate(event.created_at) %></div>
+            </div>
+          </div>
+
+        <% } else if (event.type === 'overtaken') { %>
+          <div class="alert-item overtaken">
+            <div class="alert-icon-box">📉</div>
+            <div class="alert-content">
+              <div class="alert-text">
+                You dropped from <strong>#<%= event.body.from %></strong> to <strong>#<%= event.body.to %></strong>
+              </div>
+              <div class="alert-time"><%= formatDate(event.created_at) %></div>
+            </div>
+          </div>
+
+        <% } else if (event.type === 'badge') { %>
+          <div class="alert-item badge">
+            <div class="alert-icon-box">🏆</div>
+            <div class="alert-content">
+              <div class="alert-text">
+                Unlocked new badge: <strong><%= formatBadgeName(event.body.badge_id) %></strong>
+              </div>
+              <div class="alert-time"><%= formatDate(event.created_at) %></div>
+            </div>
+          </div>
+
+        <% } else { %>
+          <div class="alert-item default">
+            <div class="alert-icon-box">🔔</div>
+            <div class="alert-content">
+              <div class="alert-text">
+                <%= JSON.stringify(event.body) %>
+              </div>
+              <div class="alert-time"><%= formatDate(event.created_at) %></div>
+            </div>
+          </div>
+        <% } %>
+      <% }); %>
+    </div>
+  <% } %>
+</div>
