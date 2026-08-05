@@ -10,7 +10,7 @@
     <div class="stat-card">
       <span class="stat-label">Current Rank</span>
       <span class="stat-value" style="color: #38bdf8;">#<%= snapshot.rank || '-' %></span>
-      <span class="stat-subtext">Global Leaderboard</span>
+      <span class="stat-subtext">National leaderboard</span>
     </div>
 
     <div class="stat-card">
@@ -48,11 +48,10 @@
     <% if (snapshot.nemesis) { %>
       <div class="nemesis-card">
         <div class="nemesis-info">
-          <div class="nemesis-avatar"><%= snapshot.nemesis_emoji || '🦹' %></div>
+          <div class="nemesis-avatar"><%= snapshot.nemesis_emoji || '?' %></div>
           <div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: #f472b6; font-weight: 700; letter-spacing: 0.05em;">Current Nemesis</div>
             <div style="font-size: 1.2rem; font-weight: 800; color: #ffffff;"><%= snapshot.nemesis %></div>
-            <div style="font-size: 0.75rem; color: #94a3b8;">Shape: <%= snapshot.nemesis_shape || 'Unknown' %></div>
           </div>
         </div>
         <div style="text-align: right;">
