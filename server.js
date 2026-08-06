@@ -78,10 +78,7 @@ app.get('/', async (req, res) => {
       fetchSnapshot(pin)
     ]);
 
-    // API returns newest first, so reverse array
     const rawEvents = snapshot.events || [];
-    const eventsOldestFirst = [...rawEvents].reverse();
-
     const activeTab = ['alerts', 'stats', 'notifications'].includes(req.query.tab)
       ? req.query.tab
       : 'alerts';
@@ -89,7 +86,7 @@ app.get('/', async (req, res) => {
     res.render('index', {
       identity,
       snapshot,
-      events: eventsOldestFirst,
+      events: rawEvents,
       activeTab,
       pin,
       formatDate,
