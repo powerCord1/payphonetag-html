@@ -14,7 +14,7 @@
     <div class="notifications-feed">
       <% snapshot.custom_alerts.forEach(alert => { %>
         <div class="notification-card">
-          <div class="notification-icon"><%= alert.icon || '📩' %></div>
+          <div class="notification-icon">
           <div>
             <div class="notification-message"><%= alert.message %></div>
             <div class="alert-time"><%= formatDate(alert.created_at) %></div>
