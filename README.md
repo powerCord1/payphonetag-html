@@ -1,6 +1,6 @@
-# Payphone Tag - HTML/EJS App
+# Payphone Tag - HTML/EJS App (Basic HTML version)
 
-A server-side rendered **Payphone Tag** web application built with **Express** and **EJS**, designed specifically for web browsers with **JavaScript disabled**. All page rendering, navigation, and user interactions rely exclusively on standard server-based HTTP requests, HTML forms, and standard links.
+A server-side rendered **Payphone Tag** web application built with **Express** and **EJS**, designed specifically for basic web browsers. All page rendering, navigation, and user interactions rely exclusively on standard server-based HTTP requests, HTML forms, and standard links.
 
 ## Overview
 
